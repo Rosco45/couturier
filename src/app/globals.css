@@ -2,26 +2,91 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 30 20% 98%;
+    --foreground: 24 10% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 10%;
+
+    /* Rich tailoring Terracotta/Copper primary */
+    --primary: 16 75% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 32 30% 92%;
+    --secondary-foreground: 24 10% 15%;
+
+    --muted: 30 15% 93%;
+    --muted-foreground: 25 10% 45%;
+
+    --accent: 38 90% 50%;
+    --accent-foreground: 24 10% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 16 75% 42%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 24 15% 8%;
+    --foreground: 30 20% 96%;
+
+    --card: 24 15% 12%;
+    --card-foreground: 30 20% 96%;
+
+    --popover: 24 15% 12%;
+    --popover-foreground: 30 20% 96%;
+
+    --primary: 16 80% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 24 15% 18%;
+    --secondary-foreground: 30 20% 96%;
+
+    --muted: 24 15% 18%;
+    --muted-foreground: 30 15% 65%;
+
+    --accent: 38 90% 50%;
+    --accent-foreground: 24 10% 10%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 24 15% 20%;
+    --input: 24 15% 20%;
+    --ring: 16 80% 55%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Touch target rule: minimum 44px for buttons, inputs and touchable elements */
+  button, a, input, select, textarea {
+    touch-action: manipulation;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Safe areas for mobile devices (notches, bottom home bar) */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
 }
