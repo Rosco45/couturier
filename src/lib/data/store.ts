@@ -74,6 +74,14 @@ class DataStore {
   private init() {
     if (typeof window !== 'undefined') {
       this.workshop = loadFromStorage('workshop', this.workshop);
+      if (
+        this.workshop.name === 'Atelier Couture Élégance Africaine' ||
+        this.workshop.name === 'Atelier Couture Elégance Africaine'
+      ) {
+        this.workshop.name = 'Couturier';
+        this.workshop.email = 'contact@couturier.bj';
+        saveToStorage('workshop', this.workshop);
+      }
       this.currentProfile = loadFromStorage('profile', this.currentProfile);
       this.clients = loadFromStorage('clients', this.clients);
       this.garmentTypes = loadFromStorage('garmentTypes', this.garmentTypes);

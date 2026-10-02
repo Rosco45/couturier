@@ -15,12 +15,12 @@ import {
 
 export const INITIAL_WORKSHOP: Workshop = {
   id: 'ws-benin-01',
-  name: 'Atelier Couture Élégance Africaine',
+  name: 'Couturier',
   logo_url: null,
   address: 'Avenue Jean-Paul II, Haie Vive, Cotonou, Bénin',
   phone: '+229 97 00 11 22',
   whatsapp: '+22997001122',
-  email: 'contact@couture-elegance.bj',
+  email: 'contact@couturier.bj',
   currency: 'FCFA',
   created_at: new Date('2026-01-01').toISOString(),
   updated_at: new Date('2026-01-01').toISOString(),
